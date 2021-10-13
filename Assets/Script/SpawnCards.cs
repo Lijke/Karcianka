@@ -20,6 +20,7 @@ public class SpawnCards : MonoBehaviour
 
     private void SpawnCard()
     {
+        Debug.Log("SPAWN CARD");
         List<Card> playerCards = player.GetCards();
         for (int i = 0; i < howManyCardOnTable; i++)
         {
@@ -36,24 +37,22 @@ public class SpawnCards : MonoBehaviour
         }
         spawnCardPositionController.OrderTheCards();
     }
-    //dzieje siê po rundzie gracza
-    public void SpawnCard(int ammountOfCard)
+    //d
+    public void SpawnExtraCard(int ammountOfCard)
     {
-        Debug.Log(ammountOfCard);
         if(player.unusedCards.Count < 1)
         {
             ShuffleUsedCards();
         }
-        for (int i = 0; i < ammountOfCard; i++)
-        {
-            
-            player.unusedCards[i].SetAciveTrue();
-            
-            spawnCardPositionController.OrderTheCard();
-            player.cardsOnTable.Add(player.unusedCards[i]);
-            player.unusedCards.Remove(player.unusedCards[i]);
-        }
-        spawnCardPositionController.OrderTheCards();
+        //dajemy 1 karte z unused
+        player.cardsOnTable.Add(player.unusedCards[0]);
+        //usuwamy j¹ z z unused
+        player.unusedCards.Remove(player.cardsOnTable[player.cardsOnTable.Count - 1]);
+        //usuwamy z cardontable
+
+        //orderujemy karty
+        StartCoroutine( spawnCardPositionController.OrderTheCard());
+      
     }
     //po turze gracze
     public void ShuffleCard()

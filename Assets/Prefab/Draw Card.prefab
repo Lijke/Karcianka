@@ -13,6 +13,18 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3357151564038154353, guid: c0f319c186579e149b943b513760c00f, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821537601241508889, guid: c0f319c186579e149b943b513760c00f, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741878287079902986, guid: c0f319c186579e149b943b513760c00f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4942822330705692798, guid: c0f319c186579e149b943b513760c00f, type: 3}
       propertyPath: m_text
       value: Draw 1 card

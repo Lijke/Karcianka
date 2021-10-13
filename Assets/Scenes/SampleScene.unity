@@ -2610,6 +2610,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5892459645145335107, guid: fbd0a606ce0a43f48a4d63950a19e949, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2587d91f70b294e43831d2d4f1ff4e96, type: 3}
+    - target: {fileID: 5892459645145335107, guid: fbd0a606ce0a43f48a4d63950a19e949, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 213c646b0374686468fa880da7a05c26, type: 2}
     - target: {fileID: 7458186521227889303, guid: fbd0a606ce0a43f48a4d63950a19e949, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1

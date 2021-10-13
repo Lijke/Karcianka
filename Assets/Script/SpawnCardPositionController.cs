@@ -28,20 +28,22 @@ public class SpawnCardPositionController : MonoBehaviour
             cards[i].transform.position = positionCard;
         }
     }
-    public void OrderTheCard()
+    //order the card if you get extra;
+    public IEnumerator OrderTheCard()
     {
+        yield return new WaitForSeconds(1);
         cards = player.cardsOnTable;
-        StartCoroutine(player.unusedCards[0].ShuffleCardToBoardPosition(new Vector3(
-           cardsTransform[cards.Count].transform.position.x,
-           cardsTransform[cards.Count].transform.position.y,
-           0)));
-
+        Debug.Log(cards.Count);
         for (int i = 0; i < cards.Count; i++)
         {
             Vector3 positionCard = new Vector3(cardsTransform[i].transform.position.x + xOffset, cardsTransform[i].transform.position.y, 0);
+            cards[i].gameObject.SetActive(true);
+            StartCoroutine(cards[i].ShuffleCardToBoardPosition(positionCard));
             cards[i].GetComponent<MovesCardByMouse>().startPos = positionCard;
-            cards[i].transform.position = positionCard;
         }
+
+
+
     }
     public IEnumerator OrderTheCardWhenEnemyTurnIsOver()
     {

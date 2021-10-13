@@ -67,7 +67,7 @@ public class MovesCardByMouse : MonoBehaviour
         Health enemyHealth = enemyGameObject.GetComponent<Health>();
         enemyHealth.DealDamage(card.AttackDamage());
         enemyHealth.GraphicEffect(card.ParticleHit());
-        StartCoroutine(card.ShuffleCardToDeckPosition());
+
         if(card.cardExtraMoveContainer.cardExtraMoves.Count != 0)
         {
             for (int i = 0; i < card.cardExtraMoveContainer.cardExtraMoves.Count; i++)
@@ -79,6 +79,8 @@ public class MovesCardByMouse : MonoBehaviour
         playerMana.ChangeManaText(card.GetManaCost());
         player.usedCards.Add(card);
         player.cardsOnTable.Remove(card);
+
+        StartCoroutine(card.ShuffleCardToDeckPosition());
         StartCoroutine(card.WaitAndDestroyCard());
        
         
@@ -96,11 +98,14 @@ public class MovesCardByMouse : MonoBehaviour
         selectionManager.CurrentCardSelected = card.gameObject;
         if (selectedCardMoveUp)
             MoveCardOver();
+        transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+
     }
 
     private void OnMouseExit()
     {
-        if(selectionManager.CurrentCardSelected == card.gameObject)
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        if (selectionManager.CurrentCardSelected == card.gameObject)
         {
             return;
         }
@@ -115,5 +120,6 @@ public class MovesCardByMouse : MonoBehaviour
     {
         selectedCardMoveUp = false;
         transform.position = new Vector3(transform.position.x, transform.position.y + yOffsetWhenMouseOnCard, 0);
+        
     }
 }
