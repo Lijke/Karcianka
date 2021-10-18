@@ -20,7 +20,6 @@ public class SpawnCards : MonoBehaviour
 
     private void SpawnCard()
     {
-        Debug.Log("SPAWN CARD");
         List<Card> playerCards = player.GetCards();
         for (int i = 0; i < howManyCardOnTable; i++)
         {

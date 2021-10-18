@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b05cfa17396817e4694bb6bf0623e6f2, type: 2}
+  m_Material: {fileID: 2100000, guid: 14253cfeca280ae40b113219aa1d0728, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -669,6 +669,7 @@ GameObject:
   - component: {fileID: 7579719931719275894}
   - component: {fileID: 8914860893779700225}
   - component: {fileID: 8171648931979547862}
+  - component: {fileID: 633194654373031083}
   m_Layer: 0
   m_Name: Slash
   m_TagString: Untagged
@@ -767,3 +768,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardExtraMoves: []
+--- !u!114 &633194654373031083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324335030899646130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9be11c7a2ef5ef4992f0ae2d457c09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outLineMaterial: {fileID: 2100000, guid: b05cfa17396817e4694bb6bf0623e6f2, type: 2}
+  standardMaterial: {fileID: 2100000, guid: 14253cfeca280ae40b113219aa1d0728, type: 2}
+  cardImage: {fileID: 7064616145419743246}
+  isMouseOver: 0
+  shaderColor: {r: 1, g: 0, b: 0, a: 0}

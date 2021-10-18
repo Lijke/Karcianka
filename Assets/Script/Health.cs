@@ -11,8 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private HealthDisplay healthDisplay;
     [SerializeField] private PlayerHealthDisplay playerHealthDisplay;
 
-    public bool isStuned;
-    public float howManyRoundHaveStun;
+    public int howManyRoundVulerable;
     public static event Action DieEnemy;
     public static event Action DiePlayer;
     private void Start()
@@ -38,8 +37,16 @@ public class Health : MonoBehaviour
 
     public void DealDamage(int damageAmmount)
     {
-
-        currentHealth -= damageAmmount;
+        if(howManyRoundVulerable > 0)
+        {
+            currentHealth -= damageAmmount * 2;
+            howManyRoundVulerable--;
+        }
+        else
+        {
+            currentHealth -= damageAmmount;
+        }
+        
         if (currentHealth < 1)
         {
             DieEnemy();

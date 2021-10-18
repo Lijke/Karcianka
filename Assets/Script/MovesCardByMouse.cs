@@ -19,6 +19,7 @@ public class MovesCardByMouse : MonoBehaviour
     private PlayerMana playerMana;
     private void Start()
     {
+        
         mainCamera = Camera.main;
         selectionManager = GameObject.FindGameObjectWithTag("SelectionManager").GetComponent<SelectionManager>();
         playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
@@ -65,13 +66,19 @@ public class MovesCardByMouse : MonoBehaviour
         }
         GameObject enemyGameObject = hit.collider.gameObject;
         Health enemyHealth = enemyGameObject.GetComponent<Health>();
-        enemyHealth.DealDamage(card.AttackDamage());
-        enemyHealth.GraphicEffect(card.ParticleHit());
+        if(!card.isCardAttackMultipleTarget)
+        {
+            enemyHealth.DealDamage(card.AttackDamage());
+            enemyHealth.GraphicEffect(card.ParticleHit());
+        }
 
-        if(card.cardExtraMoveContainer.cardExtraMoves.Count != 0)
+        if (card.cardExtraMoveContainer.cardExtraMoves.Count != 0)
         {
             for (int i = 0; i < card.cardExtraMoveContainer.cardExtraMoves.Count; i++)
             {
+
+                card.cardExtraMoveContainer.cardExtraMoves[i].enemyHealth = enemyHealth;
+                card.cardExtraMoveContainer.cardExtraMoves[i].card = card;
                 card.cardExtraMoveContainer.cardExtraMoves[i].CardMove();
             }
             

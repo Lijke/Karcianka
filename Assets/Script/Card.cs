@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     private Transform deckTransform;
     [SerializeField] private TextMeshProUGUI manaText;
     public CardExtraMoveContainer cardExtraMoveContainer;
+    public bool isCardAttackMultipleTarget;
     private void Start()
     {
         deckTransform = GameObject.FindGameObjectWithTag("Deck").GetComponent<Transform>();
@@ -33,7 +34,6 @@ public class Card : MonoBehaviour
     }
     public IEnumerator ShuffleCardToDeckPosition()
     {
-        Debug.Log("SHUFFLE");
         float time = 0;
         Vector3 startPosition = transform.position;
 
@@ -59,7 +59,7 @@ public class Card : MonoBehaviour
     }
     public IEnumerator WaitAndDestroyCard()
     {
-        yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(0.7f);
         gameObject.SetActive(false);
     }
     public void SetAciveTrue()
